@@ -157,4 +157,8 @@ table img {
 .fa-github {
 	color: #000;
 }
+.list-tools span {
+	background-color: #db3030 !important;
+	color: #fff;
+}
 
