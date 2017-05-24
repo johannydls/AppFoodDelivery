@@ -58,7 +58,7 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to add a item to the bag
 	$scope.addFoodBag = function(id) {
 
-		$scope.bag = $localStorage.bag || [];
+		$scope.bag = $localStorage.bag;
 
 		var index = getSelectedIndex(id);
 		var food = $scope.menu[index];
