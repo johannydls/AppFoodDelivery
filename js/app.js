@@ -7,6 +7,10 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	$scope.menu = [];
 	$scope.bag = [];
 
+	if (!$localStorage.bag) {
+		$localStorage.bag = [];
+	}
+
 	$scope.bag = $localStorage.bag;
 	$scope.totalBag = $localStorage.totalBag;
 	$scope.totalItems = $localStorage.totalItems;
@@ -57,10 +61,6 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 
 	//Function to add a item to the bag
 	$scope.addFoodBag = function(id) {
-
-		if ($localStorage.bag) {
-			$scope.bag = $localStorage.bag;
-		}
 
 		var index = getSelectedIndex(id);
 		var food = $scope.menu[index];
@@ -151,7 +151,7 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to get the total items from the bag
 	function getTotalItems() {
 
-		$scope.bag = $localStorage.bag || [];
+		//$scope.bag = $localStorage.bag || [];
 
 		var total = 0;
 
@@ -164,7 +164,7 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to calculate the total price from the bag
 	function getTotalPrice() {
 		
-		$scope.bag = $localStorage.bag || [];
+		//$scope.bag = $localStorage.bag || [];
 
 		var total = 0;
 		
@@ -177,7 +177,7 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to get index of the selected item from the bag
 	function getItemBag(id) {
 
-		$scope.bag = $localStorage.bag || [];
+		//$scope.bag = $localStorage.bag || [];
 		
 		for (var i = 0; i < $scope.bag.length; i++) {
 			if($scope.bag[i].id == id)
