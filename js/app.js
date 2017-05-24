@@ -147,7 +147,8 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to get the total items from the bag
 	function getTotalItems() {
 
-		//$scope.bag = $localStorage.bag;
+		$scope.bag = $localStorage.bag || [];
+		
 		var total = 0;
 
 		for( var i = 0; i < $scope.bag; i++) {
@@ -159,7 +160,8 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to calculate the total price from the bag
 	function getTotalPrice() {
 		
-		//$scope.bag = $localStorage.bag;
+		$scope.bag = $localStorage.bag || [];
+
 		var total = 0;
 		
 		for(var i = 0; i < $scope.bag.length; i++) {
@@ -171,7 +173,7 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to get index of the selected item from the bag
 	function getItemBag(id) {
 
-		//$scope.bag = $localStorage.bag;
+		$scope.bag = $localStorage.bag || [];
 		
 		for (var i = 0; i < $scope.bag.length; i++) {
 			if($scope.bag[i].id == id)
