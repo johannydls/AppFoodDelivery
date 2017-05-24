@@ -25,6 +25,7 @@ body.site {
 	color: #333;
 	font-family: Arial;
 	font-weight: 900;
+	font-variant: small-caps;
 }
 .banner a:hover {
 	color: #333;
@@ -32,8 +33,12 @@ body.site {
 }
 
 .banner h1 {
-	text-shadow: 0px 0px 11px #969696;
+	text-shadow: 0px 0px 7px #f16667;
 	font-size: 3.5em;
+}
+
+.banner img {
+	width: 10em;
 }
 
 .footer span {
@@ -46,6 +51,16 @@ body.site {
 
 table img {
 	width:  3.5em;
+}
+
+@media(max-width: 480px) {
+	.fa-sort {
+		display: none !important;
+	}
+	.tb-title,
+	.tb-price {
+		cursor: pointer;
+	}
 }
 
 .menu-filter {
@@ -86,3 +101,17 @@ table img {
 .pagination > li > a {
 	color: #999fa5 !important;
 }
+
+.form-mob {
+	display: none !important;
+}
+
+@media(max-width: 765px) {
+	.form-desk {
+		display: none !important;
+	}
+	.form-mob {
+		display: block !important;
+	}
+}
+
