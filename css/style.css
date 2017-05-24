@@ -141,3 +141,20 @@ table img {
 	}
 }
 
+.footer span {
+	font-variant: small-caps;
+	font-weight: 900;
+}
+.icons-share a:hover{
+	text-decoration: none;
+}
+.fa-facebook-square {
+	color: #303f9f;
+}
+.fa-google-plus-square {
+	color: #DB4437;
+}
+.fa-github {
+	color: #000;
+}
+
