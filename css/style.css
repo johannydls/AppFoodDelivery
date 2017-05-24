@@ -3,6 +3,7 @@ body.site {
 	background-image: url(../images/background.svg);
 	background-attachment: fixed;
 	background-size: cover;
+	background-color: #db3030;
 }
 
 .container {
@@ -16,9 +17,9 @@ body.site {
 	border-radius: 4px;
 	padding: 20px;
 	border: 1px solid rgba(0,0,0,0.15);
-	-moz-box-shadow: 0px 0px 6px rgba(0,0,0,0.05);
-	-webkit-box-shadow: 0px 0px 6px rgba(0,0,0,0.05);
-	box-shadow: 0px 0px 6px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0px 0px 6px rgba(219, 48, 48,0.05);
+	-webkit-box-shadow: 0px 0px 6px rgba(219, 48, 48,0.05);
+	box-shadow: 0px 0px 6px rgba(219, 48, 48,0.05);
 }
 
 .banner a {
@@ -45,12 +46,13 @@ body.site {
 	margin-top: 10px;
 }
 
-.menu-filter button img {
-	width: 3.5em;
-}
-
 table img {
 	width:  3.5em;
+}
+
+.tb-title,
+.tb-price {
+	padding-top: 16px !important;
 }
 
 @media(max-width: 480px) {
@@ -61,10 +63,28 @@ table img {
 	.tb-price {
 		cursor: pointer;
 	}
+
+	table img {
+		width: 2.1em;
+		padding-top: 7px;
+	}
 }
 
 .menu-filter {
+	display: flex !important;
+	justify-content: center !important;
+	text-align: center !important;
+	flex-flow: row wrap !important;
 	margin-bottom: 20px;
+}
+
+.menu-filter button img {
+	width: 4.5em;
+}
+
+.navbar-brand img {
+	width: 2.3em;
+	margin: -11px !important;
 }
 
 .cursor-pointer,
@@ -82,6 +102,10 @@ table img {
 	top: 7px;
 	background-color: #60ff5e;
 	color: #000 !important;
+}
+
+.badge {
+	font-size: 14px !important;
 }
 
 @media(max-width: 768px) {
