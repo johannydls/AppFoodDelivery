@@ -204,7 +204,61 @@
 					</div>
 				</div><!--end Bag -->
 
-				
+				<!-- modal finish -->
+				<div class="modal fade" id="modalFinish" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Checkout</h4>
+							</div>
+
+							<div class="modal-body">
+								<ul class="list-group">
+									<li class="list-group-item" ng-repeat="food in bag">
+										{{food.title}} 
+										<span class="badge">{{food.quantity}}x &nbsp;&nbsp;{{food.price | currency}}</span>
+									</li>
+									<li class="list-group-item"> </li>
+									<li class="list-group-item">
+										<b>Total purchase</b>
+										<span class="badge"><span>{{totalBag | currency}}</span></span>
+									</li>
+								</ul>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									<i class="fa fa-close"></i> Back	
+								</button>
+								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalEnd" data-dismiss="modal" ng-click="cleanBag()">
+									<i class="fa fa-check"></i> Buy
+								</button>
+							</div>
+						</div>
+					</div>
+				</div><!-- end Modal finish -->
+
+				<!-- Modal End Purchase -->
+				<div class="modal fade" id="modalEnd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Purchase completed</h4>
+							</div>
+							<div class="modal-body">
+								Thank you and come again!
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div><!-- end Modal end purchase -->
+
 			</div>
 
 		</div>
