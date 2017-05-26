@@ -54,6 +54,7 @@ table img {
 .tb-title,
 .tb-price {
 	padding-top: 16px !important;
+	user-select: none;
 }
 
 @media(max-width: 480px) {
@@ -63,6 +64,7 @@ table img {
 	.tb-title,
 	.tb-price {
 		cursor: pointer;
+		user-select: none;
 	}
 
 	table img {
