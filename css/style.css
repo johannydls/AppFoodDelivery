@@ -3,7 +3,7 @@ body.site {
 	background-image: url(../images/background.svg);
 	background-attachment: fixed;
 	background-size: cover;
-	background-color: #db3030;
+	background-color: #F16667;
 	background-position: top;
 }
 
@@ -132,6 +132,10 @@ table img {
 		display: none;
 	}
 
+	body.site {
+		background-image: url();
+	}
+
 }
 
 .pagination > .active > a,
@@ -183,9 +187,21 @@ table img {
 .modal-header-success {
     background-color: #5cb85c !important;
     color: #fff;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-top-left: 5px;
+    -moz-border-radius-top-right: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
 }
 
 .modal-header-primary {
     background-color: #428bca !important;
     color: #fff;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-top-left: 5px;
+    -moz-border-radius-top-right: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
 }
