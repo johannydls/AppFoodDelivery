@@ -4,6 +4,7 @@ body.site {
 	background-attachment: fixed;
 	background-size: cover;
 	background-color: #db3030;
+	background-position: top;
 }
 
 .container {
@@ -34,7 +35,7 @@ body.site {
 }
 
 .banner h1 {
-	text-shadow: 0px 0px 7px #f16667;
+	text-shadow: 1px 1px 3px #f16667;
 	font-size: 3.5em;
 }
 
@@ -88,31 +89,38 @@ table img {
 }
 
 .cursor-pointer,
-.cart {
+.bag {
 	cursor: pointer;
 }
 
-.cart {
-	padding-top: 10px;
+.bag {
+	margin-top: -8px;
 }
 
 .badge-total {
 	position: absolute;
-	right: -8px;
+	left: 70px;
 	top: 7px;
-	background-color: #60ff5e;
+	background-color: #60ff5e !important;
 	color: #000 !important;
 }
 
-.badge {
+.badge-finish {
 	font-size: 14px !important;
 	color: #000 !important;
 	background-color: #fff !important;
 }
 
+.icon-bag {
+	display: none;
+}
+
 @media(max-width: 768px) {
 	.badge-total {
-		position: inherit;
+		left: 85px;
+	}
+	.icon-bag {
+		display: block;
 	}
 }
 
@@ -159,6 +167,13 @@ table img {
 }
 .list-tools span {
 	background-color: #db3030 !important;
-	color: #fff;
+	color: #fff !important;
 }
 
+.modal-header-success {
+    background-color: #5cb85c !important;
+}
+
+.modal-header-primary {
+    background-color: #428bca !important;
+}

@@ -51,6 +51,13 @@
 						<span class="navbar-brand">
 							<img src="images/logo-brand.png" alt="">
 						</span>
+						<span class="navbar-brand icon-bag">
+							<span data-toggle="modal" data-target="#modalBag">
+									<i ng-click="moveTo" class="fa fa-shopping-cart fa-2x bag" title="See you cart">
+									<span ng-if="bag.length > 0" class="badge badge-total">{{totalItems}}</span>
+								</i>
+							</span>
+						</span>
 
 					</div>
 
@@ -124,13 +131,13 @@
 				<div class="col-md-6">
 					<div class="panel panel-default">
 						
-						<table class="table table-striped">
+						<table class="table table-condensed">
 							
 							<thead>
 								<tr>
 									<th></th>
-									<th class="tb-title" ng-click="orderByMe('title')">TITLE <i class="fa fa-sort cursor-pointer"></i></th>
-									<th class="tb-price" ng-click="orderByMe('price')">PRICE <i class="fa fa-sort cursor-pointer"></i></th>
+									<th class="tb-title">TITLE <i ng-click="orderByMe('title')" class="fa fa-sort cursor-pointer"></i></th>
+									<th class="tb-price">PRICE <i ng-click="orderByMe('price')" class="fa fa-sort cursor-pointer"></i></th>
 									<th></th>
 								</tr>
 							</thead>
@@ -161,7 +168,7 @@
 				</div>
 
 				<!-- Bag -->
-				<div class="col-md-6">
+				<div class="col-md-6" id="bag">
 					<div class="panel panel-default">
 						<div class="panel-heading text-center">
 							<h4 class="panel-title">Your bag</h4>
@@ -191,7 +198,7 @@
 								<tr ng-if="bag.length > 0">
 									<td><b>Total:</b></td>
 									<td></td>
-									<td><span>{{totalBag | currency}}</span></td>
+									<td><span><b>{{totalBag | currency}}</b></span></td>
 									<td></td>
 								</tr>
 								
@@ -204,11 +211,60 @@
 					</div>
 				</div><!--end Bag -->
 
+				<!-- Modal Bag -->
+				<div class="modal fade" id="modalBag" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Your bag</h4>
+							</div>
+							<div class="modal-body">
+								<table class="table table-striped">
+
+									
+									<div ng-if="listCarrinho.length < 1" class="alert alert-info">
+										The bag is empty!
+									</div>
+									
+
+									<tr ng-repeat="food in bag">
+										<td>{{food.title}}</td>
+										<td>x{{food.quantity}}</td>
+										<td>{{food.price | currency}}</td>
+										<td>
+											<a ng-click="addOne(food.id)" href="javascript:void(0)" class="btn btn-default">
+												<i class="fa fa-plus" aria-hidden="true"></i>
+											</a>
+											<a ng-click="removeOne(food.id)" href="javascript:void(0)" class="btn btn-default">
+												<i class="fa fa-minus" aria-hidden="true"></i>
+											</a>
+										</td>
+										
+									</tr>
+									<tr ng-if="bag.length > 0">
+										<td><b>Total:</b></td>
+										<td></td>
+										<td><span><b>{{totalBag | currency}}</b></span></td>
+										<td></td>
+									</tr>
+								</table>
+
+								<div ng-if="bag.length > 0" class="panel-footer text-center">
+									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalFinish">Proceed to checkout</button>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				<!-- modal finish -->
 				<div class="modal fade" id="modalFinish" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-							<div class="modal-header">
+							<div class="modal-header modal-header-primary">
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
@@ -219,12 +275,12 @@
 								<ul class="list-group">
 									<li class="list-group-item" ng-repeat="food in bag">
 										{{food.title}} 
-										<span class="badge">{{food.quantity}}x &nbsp;&nbsp;{{food.price | currency}}</span>
+										<span class="badge badge-finish">{{food.quantity}}x &nbsp;&nbsp;{{food.price | currency}}</span>
 									</li>
 									<li class="list-group-item"> </li>
 									<li class="list-group-item">
 										<b>Total purchase</b>
-										<span class="badge"><span>{{totalBag | currency}}</span></span>
+										<span class="badge badge-finish"><span>{{totalBag | currency}}</span></span>
 									</li>
 								</ul>
 							</div>
@@ -245,7 +301,7 @@
 				<div class="modal fade" id="modalEnd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-							<div class="modal-header">
+							<div class="modal-header modal-header-success">
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								<h4 class="modal-title" id="myModalLabel">Purchase completed</h4>
 							</div>

@@ -21,11 +21,11 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 			$scope.menu = response.data.food;
 	});
 
+
+
 	//Function to add one item on the bag
 	$scope.addOne = function(id) {
 		
-		//$scope.bag = $localStorage.bag;
-
 		var index = getItemBag(id);
 		var food = $scope.bag[index];
 
@@ -35,14 +35,14 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 		$scope.totalBag = getTotalPrice();
 		$scope.totalItems = getTotalItems();
 
-		//$localStorage.bag = $scope.bag;
+		$localStorage.bag = $scope.bag;
+		$localStorage.totalBag = $scope.totalBag;
+		$localStorage.totalItems = $scope.totalItems;
 	}
 
 	//Function to remove one item from the bag
 	$scope.removeOne = function(id) {
 		
-		//$scope.bag = $localStorage.bag;
-
 		var index = getItemBag(id);
 		var food = $scope.bag[index];
 
@@ -56,7 +56,9 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 		$scope.totalBag = getTotalPrice();
 		$scope.totalItems = getTotalItems();
 
-		//$localStorage.bag = $scope.bag;
+		$localStorage.bag = $scope.bag;
+		$localStorage.totalBag = $scope.totalBag;
+		$localStorage.totalItems = $scope.totalItems;
 	}
 
 	//Function to add a item to the bag
@@ -151,11 +153,11 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to get the total items from the bag
 	function getTotalItems() {
 
-		//$scope.bag = $localStorage.bag || [];
+		$scope.bag = $localStorage.bag;
 
 		var total = 0;
 
-		for( var i = 0; i < $scope.bag; i++) {
+		for( var i = 0; i < $scope.bag.length; i++) {
 			total += $scope.bag[i].quantity;
 		}
 		return total;
@@ -164,8 +166,6 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to calculate the total price from the bag
 	function getTotalPrice() {
 		
-		//$scope.bag = $localStorage.bag || [];
-
 		var total = 0;
 		
 		for(var i = 0; i < $scope.bag.length; i++) {
@@ -177,12 +177,27 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to get index of the selected item from the bag
 	function getItemBag(id) {
 
-		//$scope.bag = $localStorage.bag || [];
-		
 		for (var i = 0; i < $scope.bag.length; i++) {
 			if($scope.bag[i].id == id)
 				return i;
 		}
 		return -1;
 	};
+
+	$scope.moveTo = function() {
+		$('.fa-shopping-cart').click(function() {
+			$('html, body').animate( {
+				scrollTop: $('#bag').offset().top
+			});
+		});
+	};
+
+});
+
+$(document).ready(function() {
+	$('.fa-shopping-cart').click(function() {
+		$('html, body').animate( {
+			scrollTop: $('#bag').offset().top
+		}, 1200);
+	});
 });
