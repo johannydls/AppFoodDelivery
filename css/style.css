@@ -111,17 +111,27 @@ table img {
 	background-color: #fff !important;
 }
 
-.icon-bag {
+.icon-bag,
+#bagButton {
 	display: none;
+}
+
+#bagButton span {
+	font-size: 16px;
 }
 
 @media(max-width: 768px) {
 	.badge-total {
 		left: 85px;
 	}
-	.icon-bag {
+	.icon-bag,
+	#bagButton {
 		display: block;
 	}
+	#bag {
+		display: none;
+	}
+
 }
 
 .pagination > .active > a,
