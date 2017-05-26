@@ -64,6 +64,8 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to add a item to the bag
 	$scope.addFoodBag = function(id) {
 
+		$scope.bag = $localStorage.bag;
+
 		var index = getSelectedIndex(id);
 		var food = $scope.menu[index];
 
@@ -166,6 +168,8 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 	//Function to calculate the total price from the bag
 	function getTotalPrice() {
 		
+		$scope.bag = $localStorage.bag;
+
 		var total = 0;
 		
 		for(var i = 0; i < $scope.bag.length; i++) {
@@ -176,6 +180,8 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 
 	//Function to get index of the selected item from the bag
 	function getItemBag(id) {
+		
+		$scope.bag = $localStorage.bag;
 
 		for (var i = 0; i < $scope.bag.length; i++) {
 			if($scope.bag[i].id == id)
@@ -184,20 +190,4 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 		return -1;
 	};
 
-	$scope.moveTo = function() {
-		$('.fa-shopping-cart').click(function() {
-			$('html, body').animate( {
-				scrollTop: $('#bag').offset().top
-			});
-		});
-	};
-
-});
-
-$(document).ready(function() {
-	$('.fa-shopping-cart').click(function() {
-		$('html, body').animate( {
-			scrollTop: $('#bag').offset().top
-		}, 1200);
-	});
 });
