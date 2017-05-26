@@ -81,8 +81,8 @@ app.controller('appfoodController', function($scope, $http, $localStorage) {
 			);
 
 		} else {
-			$scope.bag[index].quantity += 1;
-			$scope.bag[index].totalPrice = food.price * $scope.bag[index].quantity;
+			$scope.bag[getItemBag(id)].quantity += 1;
+			$scope.bag[getItemBag(id)].totalPrice = food.price * $scope.bag[getItemBag(id)].quantity;
 		}
 
 		$scope.totalBag = getTotalPrice();
