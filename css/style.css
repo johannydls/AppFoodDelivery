@@ -182,8 +182,10 @@ table img {
 
 .modal-header-success {
     background-color: #5cb85c !important;
+    color: #fff;
 }
 
 .modal-header-primary {
     background-color: #428bca !important;
+    color: #fff;
 }
